@@ -13,8 +13,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.geolocation.then(success, error);
     }
+
     if(window.StatusBar) {
       StatusBar.styleDefault();
+    }
+
+    if (ionic.Platform.isAndroid()) {
+      $ionicConfigProvider.scrolling.jsScrolling(false);
     }
 
   });
@@ -38,14 +43,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/sections-list.html'
   })
 
-  .state('survey-volunteer-data', {
-    url: '/surveys/data',
-    templateUrl: 'templates/survey-volunteer-data.html'    
-  })
-  
   .state('survey-question', {
     url: '/surveys/sections/question',
-    templateUrl: 'templates/survey-question.html'    
+    templateUrl: 'templates/survey-question.html'
   })
 
 
